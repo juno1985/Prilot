@@ -4,25 +4,36 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import integration.program.compile.CompileAndRun;
 import integration.program.compile.CompileAndRunImpl;
 import integration.program.model.CaseModel;
+import integration.program.model.CompileResult;
 import integration.program.model.RunResult;
 
 public class Test {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
-		// ≤‚ ‘±‡“Î
-		CompileAndRun compileCode = new CompileAndRunImpl();
-		/*
-		 * result = compileCode.CompileCode("Solution.java");
-		 * 
-		 * System.out.println(result.getResultCode()); for (String ss :
-		 * result.getResultString()) { System.out.println(ss); }
-		 */
+		//testCompile();
+		testRun();
+	}
 
-		// ≤‚ ‘‘À––
+	// ≤‚ ‘±‡“Î
+	public static void  testCompile() throws IOException, InterruptedException {
+
+		CompileAndRun compileCode = new CompileAndRunImpl();
+
+		CompileResult result = compileCode.CompileCode("Solution.java");
+
+		System.out.println(result.getResultCode());
+		for (String ss : result.getResultString()) {
+			System.out.println(ss);
+		}
+
+	}
+
+	// ≤‚ ‘‘À––
+	public static void testRun() throws IOException, InterruptedException {
+
 		List<RunResult> runResultList = new ArrayList<RunResult>();
 		List<CaseModel> caseModelList = new ArrayList<CaseModel>();
 		CaseModel case1 = new CaseModel();
@@ -659,11 +670,10 @@ public class Test {
 		caseModelList.add(case1);
 		caseModelList.add(case2);
 		caseModelList.add(case3);
-
+		CompileAndRun compileCode = new CompileAndRunImpl();
 		runResultList = compileCode.RunCode("Solution", caseModelList);
-		for(RunResult rr : runResultList) {
+		for (RunResult rr : runResultList) {
 			System.out.println(rr.getResultCode() + " " + rr.getResultState());
 		}
 	}
-
 }

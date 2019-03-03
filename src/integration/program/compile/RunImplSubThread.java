@@ -51,7 +51,9 @@ public class RunImplSubThread extends Thread {
 				
 				this.resultString += line + "\r\n";
 			}
+			this.inputStream.close();
 			br.close();
+			this.outputStream.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

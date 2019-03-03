@@ -28,6 +28,8 @@ public class ComplieImplSubThread extends Thread {
 			while ((line = br.readLine()) != null) {
 				this.resultString.add(line);
 			}
+			this.inputStream.close();
+			br.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
