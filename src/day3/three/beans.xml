@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans>
+	<bean id="intelCPU" class="day3.three.IntelCPU"/>
+	<bean id="nvCard" class="day3.three.NVIDIACard"/>
+	
+	<bean id="mainboard" class="day3.three.Mainboard">
+		<property name="cpu">
+			<ref bean="intelCPU"/>
+		</property>
+		<property name="graphicsCard">
+			<ref bean="nvCard"/>
+		</property>
+	</bean>
+</beans>
